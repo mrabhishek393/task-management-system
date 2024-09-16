@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0bbf9f9-4159-4ece-adec-b69ecd00fde4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/database/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_service/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/event_service/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task_manager/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/task_manager/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
