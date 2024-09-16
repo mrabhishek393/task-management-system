@@ -38,7 +38,7 @@ Each service is containerized with Docker, allowing easy scaling and isolated de
 
 The architecture follows a **microservice** pattern where each service can be deployed and scaled independently. Kafka is used for event-driven communication between the services, and the API Gateway acts as the single entry point for all client requests.
 
-![Architecture Diagram](./path_to_your_architecture_diagram.png)
+![Architecture Diagram](./images/Architecture.png)
 
 ---
 
@@ -66,7 +66,7 @@ The database is normalized with relations between users, tasks, task statuses, a
 - **task_statuses**: Stores different states of tasks (e.g., pending, completed).
 - **outbox**: Stores events that are later consumed by the event service and published to Kafka.
 
-![ER Diagram](./path_to_your_er_diagram.png)
+![ER Diagram](./images/ER_Diagram.png)
 
 ---
 
@@ -105,7 +105,7 @@ Kafka is integrated to handle all event-driven communication between services, s
 
 This sequence diagram represents the flow of user interaction with the system, including login, task creation, and event-driven notifications.
 
-![Sequence Diagram](./path_to_your_sequence_diagram.png)
+![Sequence Diagram](./images/Sequence.png)
 
 ---
 
@@ -113,7 +113,7 @@ This sequence diagram represents the flow of user interaction with the system, i
 
 This diagram represents how the application is deployed in containers using Docker. Each service is containerized and deployed on separate Docker containers with PostgreSQL and Kafka managed as separate services.
 
-![Deployment Diagram](./path_to_your_deployment_diagram.png)
+![Deployment Diagram](./images/Deployment_Diagram.png)
 
 ---
 
