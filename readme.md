@@ -127,25 +127,9 @@ This diagram represents how the application is deployed in containers using Dock
 
 ### Cloning the Project
 ```bash
-git clone https://github.com/your-repo-url.git
-cd your-repo
+git clone git@github.com:mrabhishek393/task-management-system.git
+cd task-management-system
 ```
-
-### Building the Project
-You need to build each microservice using Maven:
-
-```bash
-cd user-service
-mvn clean install
-
-cd ../task-service
-mvn clean install
-
-cd ../event-service
-mvn clean install
-```
-
-Alternatively, you can modify the Dockerfiles of each microservice to automatically build the Maven project as part of the image-building process.
 
 ### Docker Compose
 Run the following command to start all services using Docker Compose:
