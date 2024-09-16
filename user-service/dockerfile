@@ -1,14 +1,32 @@
-# Use the official OpenJDK 17 image as the base image
+# First stage: Build the application using Maven
+FROM maven:3.8.7-eclipse-temurin-17 as build
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the pom.xml and download the dependencies first (cache layer)
+COPY pom.xml .
+
+# Download Maven dependencies (this will be cached as long as the pom.xml does not change)
+RUN mvn dependency:go-offline -B
+
+# Copy the entire project
+COPY . .
+
+# Build the application and skip tests
+RUN mvn clean install -DskipTests
+
+# Second stage: Create a smaller image with just the JRE and the application JAR
 FROM openjdk:17-jdk-slim
 
-# Add a volume to store temporary files
-VOLUME /tmp
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the built JAR file from the target directory
-COPY ./target/user-service-0.0.1-SNAPSHOT.jar user-service.jar
+# Copy the built JAR file from the first stage
+COPY --from=build /app/target/user-service-0.0.1-SNAPSHOT.jar user-service.jar
 
 # Expose the application port
 EXPOSE 8081
 
 # Command to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/user-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/user-service.jar"]
