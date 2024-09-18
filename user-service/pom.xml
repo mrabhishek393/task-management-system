@@ -91,7 +91,14 @@
 			<version>5.0.0</version>
 			<scope>provided</scope>  <!-- Mark as provided, since it's part of the servlet container (Tomcat) -->
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

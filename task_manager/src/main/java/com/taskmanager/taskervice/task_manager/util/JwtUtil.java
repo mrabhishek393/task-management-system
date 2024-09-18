@@ -1,9 +1,11 @@
 package com.taskmanager.taskervice.task_manager.util;
 
+import com.taskmanager.taskervice.task_manager.security.TokenBlacklist;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,10 @@ public class JwtUtil {
 
     @Value("${jwt.secret}")
     private String SECRET_KEY;
+
+
+    @Autowired
+    private TokenBlacklist tokenBlacklist;
 
     private byte[] getSigningKey() {
         return Base64.getDecoder().decode(SECRET_KEY);  // Return decoded byte[] for HMAC signing
@@ -55,6 +61,9 @@ public class JwtUtil {
 
     public Boolean validateToken(String token) {
         try {
+            if (tokenBlacklist.isBlacklisted(token)) {
+                return false;
+            }
             Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
             return !isTokenExpired(token);
         } catch (Exception e) {

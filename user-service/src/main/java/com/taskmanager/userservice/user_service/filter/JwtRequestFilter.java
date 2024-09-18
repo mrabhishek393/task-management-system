@@ -1,6 +1,7 @@
 package com.taskmanager.userservice.user_service.filter;
 
 import com.taskmanager.userservice.user_service.exception.InvalidTokenException;
+import com.taskmanager.userservice.user_service.security.TokenBlacklist;
 import com.taskmanager.userservice.user_service.service.CustomUserDetailsService;
 import com.taskmanager.userservice.user_service.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 throw new InvalidTokenException("Invalid JWT token");
             }
         }
+
 
         // Validate the token and authenticate the user
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
